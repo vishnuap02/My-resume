@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <nav id="navbar">
+        <ul>
+            <li class="item">
+                <a href="index.html">Home</a>
+            </li>
+            <li class="item">
+                <a href="projects.html">Projects</a>
+            </li>
+            <li class="item">
+                <a href="skills.html">About me</a>
+            </li>
+        </ul>
+    </nav>
+    <article class="contentPreview">
+
+
+        <div class="inline-photo show-on-scroll">
+            <div class="heading">EDUCATION:</div>
+            <ul>
+                <li class="lists">Computer Science Engineering | IIITDM-Kacheepuram CGPA:8.8 (Aug ‘20-present) </li>
+                <li class="lists">X (KSEEB) | KHEP High School- Ambikanagar (KAR) 99.04% (2018) </li>
+                <li class="lists">JEE ADV | RANK:13375 (2020) </li>
+                <li class="lists">XII (Karnataka) | DCFL PU College , Bengaluru 91.34% (2020) </li>
+            </ul>
+        </div>
+        <div class="inline-photo show-on-scroll">
+            <div class="heading">SKILLS:</div>
+            <ul>
+                <li class="lists">Deep Neural Networks , ML , AI. </li>
+                <li class="lists"> C , C++ , Python</li>
+                <li class="lists">Web Development FrontEnd (HTML , CSS , JS) , Frameworks (SVELTE)</li>
+                <li class="lists">JavaScript , Java (Basic).</li>
+            </ul>
+
+        </div>
+
+        <div class="inline-photo show-on-scroll">
+            <div class="heading">POSITION OF RESPONSIBILITY:</div>
+            <ul>
+                <li class="lists">Coordinator | Quriosity Club IIITDMK : Organizing Quizzes relating to many topics independently or with other intra-college , inter-college clubs.</li>
+                <li class="lists">Member | CS Club (AI/ML & WepOps) IIITDMK : In WebOps , Created Websites for other Clubs/Societies to display their products . </li>
+            </ul>
+
+        </div>
+
+        <div class="inline-photo show-on-scroll">
+            <div class="heading">ACHIEVEMENTS:</div>
+            <ul>
+                <li class="lists">Successfully completed Introduction to ML , DL , Computer Vision Certifications on Kaggle.</li>
+                <li class="lists"> Facilitated by CM of Karnataka for being top scorers in X th Board Exams.</li>
+            </ul>
+        </div>
+
+        <div class="inline-photo show-on-scroll">
+            <div class="heading">ACADEMIC PROJECTS:</div>
+            <ul>
+                <li class="lists">One of developers who created INFINITE CHALLENGERS website for SAE group. </li>
+                <li class="lists"> House Price prediction Tool using ML/DL using California House Dataset</li>
+            </ul>
+
+        </div>
+        <div class="inline-photo show-on-scroll">
+            <div class="heading">HOBBIES:</div>
+            <ul>
+                <li class="lists">Traveling , Trekking .</li>
+                <li class="lists">Table Tennis , Badminton .</li>
+            </ul>
+        </div>
+    </article>
+</body>
+<script>
+    // Detect request animation frame
+    var scroll = window.requestAnimationFrame ||
+        // IE Fallback
+        function(callback) {
+            window.setTimeout(callback, 1000 / 60)
+        };
+    var elementsToShow = document.querySelectorAll('.show-on-scroll');
+
+    function loop() {
+
+        Array.prototype.forEach.call(elementsToShow, function(element) {
+            if (isElementInViewport(element)) {
+                element.classList.add('is-visible');
+            } else {
+                element.classList.remove('is-visible');
+            }
+        });
+
+        scroll(loop);
+    }
+
+    // Call the loop for the first time
+    loop();
+
+    // Helper function from: http://stackoverflow.com/a/7557433/274826
+    function isElementInViewport(el) {
+        // special bonus for those using jQuery
+        if (typeof jQuery === "function" && el instanceof jQuery) {
+            el = el[0];
+        }
+        var rect = el.getBoundingClientRect();
+        return (
+            (rect.top <= 0 &&
+                rect.bottom >= 0) ||
+            (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight)) ||
+            (rect.top >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+        );
+    }
+</script>
+
+</html>

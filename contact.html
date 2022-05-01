@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleindex.css">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <nav id="navbar">
+        <ul>
+            <li class="item">
+                <a href="index.html">Home</a>
+            </li>
+            <li class="item">
+                <a href="projects.html">Projects</a>
+            </li>
+            <li class="item">
+                <a href="skills.html">About me</a>
+            </li>
+            <li class="item">
+                <a href="contact.html">Contact me</a>
+            </li>
+        </ul>
+    </nav>
+    <article class="contentPreview">
+        <div>
+            <img src="passport_img.jpeg" alt="profilepicture" class="profilepic">
+        </div>
+
+        <div class="inline-photo show-on-scroll">
+
+            <h3 class="contact">Mail : vishnuparvatikar@gmail.com <br> Mobile : +918296084470 <br>
+                <a href="https://github.com/vishnuap02"><img src="github_logo.png" alt="github" class="github"></a> <br>
+                <a href="https://www.linkedin.com/in/vishnu-abhay-parvatikar-a98999206/"><img src="Linkedin_logo.png" alt="LinkedIn" class="github"></a>
+            </h3>
+
+
+        </div>
+    </article>
+</body>
+<script>
+    // Detect request animation frame
+    var scroll = window.requestAnimationFrame ||
+        // IE Fallback
+        function(callback) {
+            window.setTimeout(callback, 1000 / 60)
+        };
+    var elementsToShow = document.querySelectorAll('.show-on-scroll');
+
+    function loop() {
+
+        Array.prototype.forEach.call(elementsToShow, function(element) {
+            if (isElementInViewport(element)) {
+                element.classList.add('is-visible');
+            } else {
+                element.classList.remove('is-visible');
+            }
+        });
+
+        scroll(loop);
+    }
+
+    // Call the loop for the first time
+    loop();
+
+    // Helper function from: http://stackoverflow.com/a/7557433/274826
+    function isElementInViewport(el) {
+        // special bonus for those using jQuery
+        if (typeof jQuery === "function" && el instanceof jQuery) {
+            el = el[0];
+        }
+        var rect = el.getBoundingClientRect();
+        return (
+            (rect.top <= 0 &&
+                rect.bottom >= 0) ||
+            (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight)) ||
+            (rect.top >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+        );
+    }
+</script>
+
+</html>

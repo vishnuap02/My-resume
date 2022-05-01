@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <nav id="navbar">
+        <ul>
+            <li class="item">
+                <a href="index.html">Home</a>
+            </li>
+            <li class="item">
+                <a href="projects.html">Projects</a>
+            </li>
+            <li class="item">
+                <a href="skills.html">About me</a>
+            </li>
+        </ul>
+    </nav>
+    <article class="contentPreview">
+
+        <div class="inline-photo show-on-scroll">
+            <div class="heading">Hospital Search System</div>
+            <p> Technologies Used : Python (Flask) for backend , MySQL for database Management , HTML for frontend .<br><br> This is part of Academic project .<br> The main Aim of this is providing real-time Bed availability in specified preferred "Location"
+                Hospitals Registered . There are login pages for Hospital and Doctors.<br> Doctor's related Join Feature is Yet to be Added . <br> Here it contains details of Hospitals which is taken from Hospitals through Registration . <br> (Currently
+                it has no Animations and it is not Hosted. )
+            </p>
+            <a href="https://github.com/vishnuap02/Noisser_WebMusicalApp">
+                <img src="#" alt="video of project" class="ss_of_webapps">
+            </a>
+        </div>
+        <div class="inline-photo show-on-scroll">
+            <div class="heading">Online MP3 Player</div>
+            <p>Though a very simple one . I mentioned it because it is my first web app , <br> which is static and only has one song to play ! , <br> As i moved towards other concepts and went on making other projects , so left it at this stage . I hope
+                to add still extra features with personalisation.
+            </p>
+            <a href="https://github.com/vishnuap02/Noisser_WebMusicalApp">
+                <img src="music_app_ss.png" alt="screenshot of music app" class="ss_of_webapps">
+            </a>
+        </div>
+    </article>
+</body>
+<script>
+    // Detect request animation frame
+    var scroll = window.requestAnimationFrame ||
+        // IE Fallback
+        function(callback) {
+            window.setTimeout(callback, 1000 / 60)
+        };
+    var elementsToShow = document.querySelectorAll('.show-on-scroll');
+
+    function loop() {
+
+        Array.prototype.forEach.call(elementsToShow, function(element) {
+            if (isElementInViewport(element)) {
+                element.classList.add('is-visible');
+            } else {
+                element.classList.remove('is-visible');
+            }
+        });
+
+        scroll(loop);
+    }
+
+    // Call the loop for the first time
+    loop();
+
+    // Helper function from: http://stackoverflow.com/a/7557433/274826
+    function isElementInViewport(el) {
+        // special bonus for those using jQuery
+        if (typeof jQuery === "function" && el instanceof jQuery) {
+            el = el[0];
+        }
+        var rect = el.getBoundingClientRect();
+        return (
+            (rect.top <= 0 &&
+                rect.bottom >= 0) ||
+            (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight)) ||
+            (rect.top >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+        );
+    }
+</script>
+
+</html>
